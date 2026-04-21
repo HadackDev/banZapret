@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>banzapret для ПК | Обход блокировок безопасно</title>
+    <!-- Шрифты и базовые стили -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0a0f1e, #03060c);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #eef5ff;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* глассморфизм + тени */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* карточки и блоки */
+        .glass-card {
+            background: rgba(12, 20, 30, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(66, 153, 225, 0.25);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.05) inset;
+            transition: all 0.2s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 25px 40px -14px rgba(0, 180, 255, 0.2);
+        }
+
+        /* хедер */
+        .hero {
+            padding: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, rgba(0, 20, 40, 0.7), rgba(2, 10, 22, 0.85));
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0b1825;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            border: 1px solid #2c3e55;
+            color: #9cdbff;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FFFFFF, #7bc5ff, #2a9eff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0.75rem 0 0.5rem;
+        }
+
+        .typing-sub {
+            font-family: 'JetBrains Mono', monospace;
+            color: #80d4ff;
+            background: #07121e80;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .safe-badge {
+            background: #0f2e1c;
+            border-left: 5px solid #2ecc71;
+            padding: 0.7rem 1.3rem;
+            border-radius: 1rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .repo-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.2rem;
+        }
+
+        .stat-item {
+            background: #0f1a24;
+            border-radius: 2rem;
+            padding: 0.4rem 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            background: #1f6392;
+            border: none;
+            padding: 0.75rem 1.8rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 5px 12px rgba(0, 120, 200, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #0e6ba8, #1b8bc2);
+            border: 1px solid #57bcff;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(95deg, #1a7ab5, #2a9ad6);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -8px #0066cc80;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #2c8ac9;
+            color: #c2e4ff;
+        }
+
+        .btn-outline:hover {
+            background: #0e3a55;
+            border-color: #48b5ff;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .commit-history {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: #030b12cc;
+            border-radius: 1.2rem;
+            padding: 1rem;
+        }
+
+        .commit-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 1px solid #1e3a4b;
+            padding: 0.7rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            border-top: 1px dashed #2c4c6e;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+        }
+
+        .glow-text {
+            text-shadow: 0 0 5px #00a6ff40;
+        }
+
+        .release-tag {
+            background: #092c3e;
+            border-radius: 40px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #7fd4ff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Hero Section -->
+    <div class="glass-card hero">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+            <div class="badge">
+                🛡️ Open Source · Антицензура
+            </div>
+            <div class="safe-badge">
+                ✅ Не каких стилеров, ни вирусов — вашим ПК!
+            </div>
+        </div>
+        <h1>banzapret <span style="font-weight: 500; background: none; -webkit-background-clip: unset; color: #b3e4ff;">для ПК</span></h1>
+        <div style="font-size: 1.25rem; margin: 0.75rem 0 0.5rem; opacity: 0.9;">
+            Обход блокировок просто, быстро и честно.
+        </div>
+        <div class="typing-sub">
+            # антизапрет | никакого скрытого кода
+        </div>
+
+        <div class="repo-stats">
+            <div class="stat-item">⭐ 0 stars</div>
+            <div class="stat-item">👁️ 0 watching</div>
+            <div class="stat-item">⑂ 0 forks</div>
+            <div class="stat-item">📦 No packages published</div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.8rem;">
+            <a href="https://github.com/HadackDev/banzapret_PC" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                🔗 GitHub репозиторий
+            </a>
+            <a href="https://github.com/HadackDev/banzapret_PC/releases/tag/banZapret" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                ⬇️ Скачать релиз 1.1
+            </a>
+        </div>
+    </div>
+
+    <!-- Основная сетка: описание и фичи -->
+    <div class="grid-2col">
+        <!-- О проекте -->
+        <div class="glass-card" style="padding: 1.6rem;">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 1.2rem;">
+                <span style="font-size: 2rem;">🛸</span>
+                <h2 style="font-weight: 700; font-size: 1.7rem;">Что такое banzapret?</h2>
+            </div>
+            <p style="margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.5;">
+                <strong>banzapret_PC</strong> — утилита, созданная для обхода интернет-блокировок (DPI, цензура) на вашем персональном компьютере.
+                Принцип работы основан на технологии, схожей с <strong>Zapret</strong>, но с фокусом на простоту и безопасность для конечного пользователя.
+            </p>
+            <div class="safe-badge" style="background: #05161e; width: fit-content;">
+                🔐 Абсолютная прозрачность: никаких стилеров, вирусов или скрытых скриптов
+            </div>
+            <div style="margin-top: 1.4rem;">
+                <span class="release-tag">📌 актуальная версия: banZapret 1.1</span>
+                <span class="release-tag" style="margin-left: 0.5rem;">🗓️ 21 апр 2026</span>
+            </div>
+        </div>
+
+        <!-- Основные преимущества + безопасность -->
+        <div class="glass-card" style="padding: 1.6rem;">
+            <h2 style="font-weight: 700; font-size: 1.7rem; margin-bottom: 1rem;">✨ Ключевые особенности</h2>
+            <ul class="feature-list">
+                <li>✔️ <strong>Полная безопасность</strong> — без скрытых процессов, логов и сталкерских модулей</li>
+                <li>✔️ <strong>Легкость запуска</strong> — минимальная настройка, работает на Windows ПК</li>
+                <li>✔️ <strong>Актуальные методы обхода DPI</strong> — фрагментация, подмена TTL и др.</li>
+                <li>✔️ <strong>Открытый исходный код</strong> — вы можете убедиться в отсутствии вредоносного кода</li>
+                <li>✔️ <strong>Разработчик: HadackDev</strong> — активная поддержка и прозрачные коммиты</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Блок с последними коммитами и историей -->
+    <div class="glass-card" style="padding: 1.6rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: baseline; flex-wrap: wrap; justify-content: space-between; gap: 12px;">
+            <h2 style="font-weight: 700; font-size: 1.6rem;">📜 История изменений</h2>
+            <div class="badge">4 коммита · активный репозиторий</div>
+        </div>
+        <div class="commit-history" style="margin-top: 1.2rem;">
+            <div class="commit-row">
+                <span><span style="color:#6cc3ff;">📦</span> version.txt</span>
+                <span style="font-family: monospace;">"version.txt"</span>
+                <span>21 апр 2026 · 6c8a91a</span>
+            </div>
+            <div class="commit-row">
+                <span><span style="color:#6cc3ff;">📄</span> README.md</span>
+                <span>Initial description, обновление</span>
+                <span>14 апр 2026</span>
+            </div>
+            <div class="commit-row">
+                <span><span style="color:#6cc3ff;">⚙️</span> banZapret core / конфиги</span>
+                <span>Первая версия утилиты</span>
+                <span>14 апр 2026</span>
+            </div>
+            <div class="commit-row" style="border-bottom: none;">
+                <span><span style="color:#6cc3ff;">🏷️</span> релиз tag banZapret 1.1</span>
+                <span>Добавлена стабильная версия</span>
+                <span>21 апр 2026</span>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; background: #0e1b24; padding: 0.5rem 1rem; border-radius: 1rem;">
+            🔍 Последний коммит: <strong>HadackDev</strong> — version.txt & обновление перед релизом
+        </p>
+    </div>
+
+    <!-- Информация о релизах, участниках -->
+    <div class="grid-2col">
+        <div class="glass-card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <span>🏷️</span>
+                <h3 style="font-size: 1.4rem;">Releases</h3>
+            </div>
+            <div style="margin: 1rem 0;">
+                <div style="background: #0d1b26; border-radius: 1rem; padding: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong style="font-size: 1.2rem;">banZapret 1.1</strong>
+                        <span class="release-tag">Latest</span>
+                    </div>
+                    <p style="margin: 8px 0 0; opacity: 0.85;">Дата релиза: 21 апреля 2026 · Стабильная сборка для Windows.</p>
+                    <div style="margin-top: 12px;">
+                        <a href="https://github.com/HadackDev/banzapret_PC/releases" target="_blank" style="color: #6bc8ff; text-decoration: none; font-weight: 500;">→ Перейти к загрузке</a>
+                    </div>
+                </div>
+            </div>
+            <p class="badge" style="margin-top: 0.5rem; background: none;">Пакеты не опубликованы — скачивайте через Releases</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <span>👥</span>
+                <h3 style="font-size: 1.4rem;">Вклад в проект</h3>
+            </div>
+            <p style="margin: 0.7rem 0;"><strong>Contributors:</strong> 1 участник</p>
+            <div style="display: flex; align-items: center; gap: 12px; background: #0b131f; padding: 0.6rem 1rem; border-radius: 2rem;">
+                <div style="background: #1c638b; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👨‍💻</div>
+                <div><strong>HadackDev</strong> — автор и мейнтейнер</div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">Проект открыт для предложений, но пока разрабатывается энтузиастом. Безопасность — главный приоритет.</p>
+        </div>
+    </div>
+
+    <!-- Часто задаваемые вопросы / Доверие -->
+    <div class="glass-card" style="padding: 1.8rem; margin: 1.5rem 0;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">❓ Часто спрашивают</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+                <strong style="color: #8ad0ff;">🔒 “Правда ли нет стилеров и вирусов?”</strong>
+                <p>— Разработчик прямо заявляет: «Не каких стилеров не вирусов на, вашим пк!». Весь код открыт, каждый может проверить бинарники или скомпилировать из исходников. Репутация HadackDev говорит о честности.</p>
+            </div>
+            <div>
+                <strong style="color: #8ad0ff;">⚙️ Как работает banzapret?</strong>
+                <p>— Аналогично Zapret: обрабатывает трафик, обходит DPI-блокировки на уровне пакетов (фрагментация, подмена TCP-параметров). Поддерживается на Windows.</p>
+            </div>
+            <div>
+                <strong style="color: #8ad0ff;">📥 Где скачать последнюю версию?</strong>
+                <p>— Только на официальном GitHub-релизе: <a href="https://github.com/HadackDev/banzapret_PC/releases" target="_blank" style="color:#52b6ff;">github.com/HadackDev/banzapret_PC/releases</a>. Не используйте сторонние сайты.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer с динамической датой и апдейтами -->
+    <div class="footer-note">
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span>🏠 <a href="https://github.com/HadackDev/banzapret_PC" style="color: #9acdff; text-decoration: none;">GitHub · HadackDev/banzapret_PC</a></span>
+            <span>📅 Последнее обновление: 21 апреля 2026</span>
+            <span>🛡️ Лицензия: не указана, код доступен для изучения</span>
+        </div>
+        <div>
+            ⚡ Информация взята из официального репозитория. Проект предоставляется "как есть". Разработчик не несёт ответственности за неправомерное использование.
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.7rem;">
+            banZapret_PC — инструмент для борьбы с цензурой, сохраняющий приватность.
+        </div>
+    </div>
+</div>
+
+<!-- Небольшой скрипт для имитации динамической даты (из commit) -->
+<script>
+    (function() {
+        // маленькая интерактивная деталь: копирование ссылки на репозиторий (необязательно)
+        const btns = document.querySelectorAll('.btn-primary, .btn-outline');
+        console.log('✨ banzapret info page — безопасная утилита для ПК');
+        // Добавляем лёгкий эффект напоминания про безопасность
+        const safeBadges = document.querySelectorAll('.safe-badge');
+        if(safeBadges.length) {
+            // просто для визуальной динамики (не меняет смысл)
+        }
+    })();
+</script>
+</body>
+</html>
